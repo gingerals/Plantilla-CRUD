@@ -1,0 +1,6 @@
+.contrast {
+    background: inherit;
+    background-clip: text;
+    color: transparent;
+    filter: invert(1);
+}

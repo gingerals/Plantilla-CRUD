@@ -1,0 +1,57 @@
+{% block content %}
+
+<nav class="navbar navbar-light d-flex shadow-sm"
+  style="background: linear-gradient(90deg, rgba(127,36,135,1) 0%, rgba(2,0,115,1) 35%, rgb(108, 190, 241) 100%);">
+  <div class="container-fluid " >
+    <a class="navbar-brand" href="/" >
+      <img class="ms-3" src="https://ssl.com.mx/wp-content/uploads/2021/08/LogoSSL.png" alt="" width="auto" height="45">
+      <span class="fw-bold px-5" style="color: aliceblue;">Plantilla CRUD</span>
+    </a>
+
+    <div class="row px-5"  id="navbarNav">
+      <ul class="navbar-nav">
+        {% if current_user.is_authenticated %}
+        <div class="row align-items-end">
+          <div class="col">
+            <li class="nav-item ">
+              
+
+              {% if current_user.is_admin %}
+              <a class="nav-link fs-5 text-nowrap fw-bold " href="/admin/users">{{ current_user.username }}</a>
+              {% else %}
+              <a class="nav-link fs-5 text-nowrap fw-bold disabled" href="#">{{ current_user.username }}</a>
+              {% endif %}
+            </li>
+          </div>
+          <div class="col">
+            <li class="nav-item ">
+              <a class="nav-link fs-5  text-nowrap" href="/dashboard">Dashboard</a>
+            </li>
+          </div>
+          <div class="col">
+            <li class="nav-item ">
+              <a class="nav-link fs-5  text-nowrap" href="/logout">Salir</a>
+            </li>
+          </div>
+        </div>
+
+        {% else %}
+        <div class="row align-items-end">
+          <div class="col">
+            <li class="nav-item ">
+              <a class="nav-link fs-5 d-inline text-nowrap" href="/login">Iniciar sesión</a>
+            </li>
+          </div>
+          <div class="col">
+            <li class="nav-item ">
+              <a class="nav-link fs-5 d-inline text-nowrap me-5" href="/register">Registrarse</a>
+            </li>
+          </div>
+        </div>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% endblock %}
